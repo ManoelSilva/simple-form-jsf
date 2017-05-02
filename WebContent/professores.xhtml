@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	<h:form>
+		<h:commandButton value="Novo" action="professor" />
+	</h:form>
+	<h:dataTable value="#{professorBean.professores}" var="professor">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			<h:outputText value="#{professor.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			<h:outputText value="#{professor.nome}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Título</f:facet>
+			<h:outputText value="#{professor.titulo}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Áreas de Interesse</f:facet>
+			<ul>
+				<ui:repeat var="area" value="#{professor.areaDeInteresse}">
+					<li><h:outputText value="#{area.nome}" /></li>
+				</ui:repeat>
+			</ul>
+		</h:column>
+
+	</h:dataTable>
+</h:body>
+
+</html>

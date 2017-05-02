@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome: " />
+			<h:inputText value="#{professorBean.professor.nome}" />
+
+			<h:outputLabel value="Título: " />
+			<h:inputText value="#{professorBean.professor.titulo}" />
+
+			<h:outputLabel value="Área de Interesse" />
+			<h:panelGroup>
+				<h:inputText value="#{professorBean.areaDeInteresse.nome}" />
+
+				<h:commandButton action="#{professorBean.adicionarArea}" value="+" />
+			</h:panelGroup>
+
+			<h:dataTable value="#{professorBean.professor.areaDeInteresse}"
+				var="area">
+				<h:column>
+					<h:outputText value="#{area.nome}" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+
+		<h:commandButton action="#{professorBean.adicionarProfessor}"
+			value="Enviar" />
+	</h:form>
+</h:body>
+
+</html>
